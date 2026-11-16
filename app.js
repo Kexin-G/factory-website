@@ -1,7 +1,6 @@
 let currentLang = localStorage.getItem('lang') || 'zh';
 let siteData = {};
 
-// 初始化
 async function init() {
     updateLangUI();
     try {
@@ -19,16 +18,32 @@ function changeLang(lang) {
     currentLang = lang;
     localStorage.setItem('lang', lang);
     updateLangUI();
-    init(); // 重新加载数据
+    init(); 
 }
 
 function updateLangUI() {
-    document.getElementById('btn-zh').style.background = currentLang === 'zh' ? 'var(--bg)' : 'none';
-    document.getElementById('btn-en').style.background = currentLang === 'en' ? 'var(--bg)' : 'none';
+    document.getElementById('btn-zh').style.background = currentLang === 'zh' ? 'var(--primary-light)' : 'none';
+    document.getElementById('btn-zh').style.borderColor = currentLang === 'zh' ? 'var(--primary)' : 'var(--line)';
+    
+    document.getElementById('btn-en').style.background = currentLang === 'en' ? 'var(--primary-light)' : 'none';
+    document.getElementById('btn-en').style.borderColor = currentLang === 'en' ? 'var(--primary)' : 'var(--line)';
 }
 
 function renderChrome() {
     document.title = siteData.site.title;
+    
+    // 处理 Logo 显示
+    const logoImg = document.getElementById('site-logo');
+    const fallbackIcon = document.getElementById('fallback-logo');
+    if (siteData.site.logo && siteData.site.logo.trim() !== "") {
+        logoImg.src = siteData.site.logo;
+        logoImg.style.display = 'block';
+        fallbackIcon.style.display = 'none';
+    } else {
+        logoImg.style.display = 'none';
+        fallbackIcon.style.display = 'block';
+    }
+
     document.getElementById('brand-name').textContent = siteData.site.name;
     document.getElementById('footer').textContent = siteData.site.footer;
     
@@ -42,18 +57,22 @@ function renderRoute() {
     const hash = window.location.hash.slice(1) || '/';
     const app = document.getElementById('app');
     
-    // 高亮导航
     document.querySelectorAll('.mainnav a').forEach(a => {
         a.classList.toggle('active', hash.startsWith(a.dataset.path) && a.dataset.path !== '/');
     });
 
-    // 首页
     if (hash === '/') {
+        // 首页加入了 Hero 图片
         app.innerHTML = `
             <div class="hero">
-                <h1>${siteData.home.title}</h1>
-                <p>${siteData.home.subtitle}</p>
-                <a href="#${siteData.home.ctaLink}" class="btn">${siteData.home.ctaText}</a>
+                <div class="hero-content">
+                    <h1>${siteData.home.title}</h1>
+                    <p>${siteData.home.subtitle}</p>
+                    <a href="#${siteData.home.ctaLink}" class="btn">${siteData.home.ctaText}</a>
+                </div>
+                <div class="hero-image-wrap">
+                    <img src="${siteData.home.heroImage}" alt="Chip Cooling" class="hero-image">
+                </div>
             </div>
             <div class="stats-bar">
                 ${siteData.home.stats.map(s => `
@@ -77,29 +96,29 @@ function renderRoute() {
         return;
     }
 
-    // 查找页面数据
     const pageData = siteData.pages[hash];
     if (!pageData) {
         app.innerHTML = '<h1>404 - 页面不存在</h1>';
         return;
     }
 
-    // 渲染具体页面 (处理特殊组件：表格、人物、表单)
     let contentHtml = '';
     
     if (pageData.type === 'compare') {
         contentHtml = `
             <h2>${pageData.tableTitle}</h2>
-            <table class="compare-table">
-                <thead><tr>${pageData.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
-                <tbody>
-                    ${pageData.rows.map(row => `
-                        <tr>
-                            ${row.map((cell, i) => `<td class="${i===0?'highlight':''}">${cell}</td>`).join('')}
-                        </tr>
-                    `).join('')}
-                </tbody>
-            </table>
+            <div class="compare-container">
+                <table class="compare-table">
+                    <thead><tr>${pageData.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
+                    <tbody>
+                        ${pageData.rows.map(row => `
+                            <tr>
+                                ${row.map((cell, i) => `<td class="${i===0?'highlight':''}">${cell}</td>`).join('')}
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            </div>
             <div class="prose">${pageData.desc}</div>
         `;
     } else if (pageData.type === 'profile') {
