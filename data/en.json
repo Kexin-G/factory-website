@@ -1,0 +1,67 @@
+{
+  "site": {
+    "name": "ThermaCore",
+    "title": "ThermaCore - High Performance Thermal Materials",
+    "footer": "© 2026 ThermaCore Tech | Breaking Import Monopolies"
+  },
+  "nav": [
+    { "path": "/material", "label": "Advantages" },
+    { "path": "/applications", "label": "Applications" },
+    { "path": "/team", "label": "Expertise" },
+    { "path": "/contact", "label": "Contact / Sample" }
+  ],
+  "home": {
+    "title": "In-house Thermal Materials for High-Compute Chips",
+    "subtitle": "Matching top-tier import performance at half the cost. Breaking the bottleneck of global chip cooling.",
+    "ctaText": "View Material Specs",
+    "ctaLink": "/material",
+    "stats": [
+      { "value": "50%", "label": "Cost Reduction vs. Imports" },
+      { "value": "> 150 W/m·K", "label": "Ultra-High Conductivity" },
+      { "value": "100%", "label": "Proprietary Patent Tech" }
+    ],
+    "features": [
+      { "title": "Import Substitution", "desc": "Self-developed formula and process cuts material costs in half while maintaining extreme stability." },
+      { "title": "Crucial for AI Era", "desc": "Essential for AI servers and high-end GPUs. Global demand is booming while supply remains scarce." },
+      { "title": "Backed by Top Experts", "desc": "Our R&D head holds core patents and previously served as Tech Director for major non-ferrous metal companies." }
+    ]
+  },
+  "pages": {
+    "/material": {
+      "title": "Material Advantages",
+      "subtitle": "Data-driven reasons to choose our materials",
+      "type": "compare",
+      "tableTitle": "Performance & Cost Comparison",
+      "headers": ["Metric", "Imported Materials", "Our Material"],
+      "rows": [
+        ["Cost", "Very High (Supply chain premium)", "50% of Import Price"],
+        ["Conductivity", "150 W/m·K", "≥ 150 W/m·K"],
+        ["Supply Stability", "Long lead time, risk of shortage", "Domestic direct supply, fast response"],
+        ["Customization", "Limited", "Tailored to your chip packaging needs"]
+      ],
+      "desc": "<p>Our materials are engineered to meet the rigorous thermal management demands of high-compute chips. As global demand for chip cooling surges, our domestic alternative secures your supply chain and drastically reduces BOM costs.</p>"
+    },
+    "/applications": {
+      "title": "Applications",
+      "subtitle": "Solving high heat flux challenges",
+      "content": "<h2>AI Compute Servers</h2><p>Designed for AI training clusters. Our materials significantly lower junction temperatures, ensuring stable operation under heavy loads.</p><h2>High-end Consumer Electronics</h2><p>Ultra-thin and highly conductive solutions for smartphones and high-performance laptops.</p><h2>New Energy Vehicles</h2><p>High reliability across a wide temperature range for autonomous driving chips and power semiconductors.</p>"
+    },
+    "/team": {
+      "title": "Expertise & Credentials",
+      "subtitle": "Top-tier R&D team building the technical moat",
+      "type": "profile",
+      "desc": "<p>We don't just formulate materials; we deeply understand downstream manufacturing processes.</p>",
+      "name": "Mr. Li (R&D Director)",
+      "role": "Chief Technical Expert / Patent Inventor",
+      "bio": "<p>Former Technical Director at a major non-ferrous metal group. Led multiple national R&D projects. Extensive experience in industrializing advanced materials.</p>",
+      "patents": ["Patent: High thermal conductivity composite material", "Utility Model: Heat dissipation structure for chip packaging", "Senior Engineer of Non-ferrous Metals"]
+    },
+    "/contact": {
+      "title": "Contact Us & Request Sample",
+      "subtitle": "We welcome inquiries from hardware companies",
+      "type": "form",
+      "desc": "<p>Free testing samples are available. Fill out the form and our engineers will reach out within 24 hours.</p>",
+      "formspreeUrl": "https://formspree.io/f/YOUR_FORM_ID"
+    }
+  }
+}
