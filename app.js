@@ -32,7 +32,6 @@ function updateLangUI() {
 function renderChrome() {
     document.title = siteData.site.title;
     
-    // 处理 Logo 显示
     const logoImg = document.getElementById('site-logo');
     const fallbackIcon = document.getElementById('fallback-logo');
     if (siteData.site.logo && siteData.site.logo.trim() !== "") {
@@ -53,6 +52,15 @@ function renderChrome() {
     document.getElementById('mainnav').innerHTML = navHtml;
 }
 
+// Tab 切换函数
+function switchTab(tabId) {
+    document.querySelectorAll('.tab-pane').forEach(pane => pane.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    
+    document.getElementById(tabId).classList.add('active');
+    document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+}
+
 function renderRoute() {
     const hash = window.location.hash.slice(1) || '/';
     const app = document.getElementById('app');
@@ -62,7 +70,6 @@ function renderRoute() {
     });
 
     if (hash === '/') {
-        // 首页加入了 Hero 图片
         app.innerHTML = `
             <div class="hero">
                 <div class="hero-content">
@@ -104,60 +111,140 @@ function renderRoute() {
 
     let contentHtml = '';
     
-    if (pageData.type === 'compare') {
-        contentHtml = `
-            <h2>${pageData.tableTitle}</h2>
-            <div class="compare-container">
-                <table class="compare-table">
-                    <thead><tr>${pageData.headers.map(h => `<th>${h}</th>`).join('')}</tr></thead>
-                    <tbody>
-                        ${pageData.rows.map(row => `
-                            <tr>
-                                ${row.map((cell, i) => `<td class="${i===0?'highlight':''}">${cell}</td>`).join('')}
-                            </tr>
+    // 1. 应用场景渲染
+    if (pageData.type === 'applications') {
+        contentHtml = pageData.list.map((item, index) => `
+            <div class="app-section">
+                <div class="app-img">
+                    <img src="${item.image}" alt="${item.title}">
+                </div>
+                <div class="app-content">
+                    <h2>${item.title}</h2>
+                    <p>${item.desc}</p>
+                    <div class="app-stats">
+                        ${item.stats.map(s => `
+                            <div class="app-stat-box">
+                                <span>${s.label}</span>
+                                <strong>${s.value}</strong>
+                            </div>
                         `).join('')}
-                    </tbody>
-                </table>
+                    </div>
+                </div>
             </div>
-            <div class="prose">${pageData.desc}</div>
-        `;
-    } else if (pageData.type === 'profile') {
+        `).join('');
+    } 
+    // 2. 团队背景渲染
+    else if (pageData.type === 'team') {
         contentHtml = `
             <div class="prose">${pageData.desc}</div>
+            
+            <h2 style="margin-top:40px;">团队构成</h2>
+            <div class="team-grid">
+                ${pageData.composition.map(c => `
+                    <div class="team-card">
+                        <h3>${c.title}</h3>
+                        <p>${c.desc}</p>
+                    </div>
+                `).join('')}
+            </div>
+
+            <h2 style="margin-top:50px;">首席专家技术背书</h2>
             <div class="profile">
                 <div class="profile-avatar">👨‍🔬</div>
                 <div class="profile-info">
-                    <h3>${pageData.name}</h3>
-                    <div class="role">${pageData.role}</div>
-                    <div class="prose">${pageData.bio}</div>
+                    <h3>${pageData.expert.name}</h3>
+                    <div class="role">${pageData.expert.role}</div>
+                    <div class="prose">${pageData.expert.bio}</div>
                     <div class="patent-tags">
-                        ${pageData.patents.map(p => `<span class="patent-tag">${p}</span>`).join('')}
+                        ${pageData.expert.patents.map(p => `<span class="patent-tag">${p}</span>`).join('')}
                     </div>
                 </div>
             </div>
         `;
-    } else if (pageData.type === 'form') {
+    } 
+    // 3. 商务合作渲染 (Tab)
+    else if (pageData.type === 'business') {
         contentHtml = `
-            <div class="prose">${pageData.desc}</div>
-            <form action="${pageData.formspreeUrl}" method="POST" style="max-width: 600px; margin-top:30px;">
-                <div class="form-group">
-                    <label>${currentLang === 'zh' ? '您的姓名' : 'Your Name'}</label>
-                    <input type="text" name="name" required>
+            <div class="tab-container">
+                <div class="tab-nav">
+                    <button class="tab-btn active" data-tab="tab-cases" onclick="switchTab('tab-cases')">合作案例</button>
+                    <button class="tab-btn" data-tab="tab-sample" onclick="switchTab('tab-sample')">申请样品</button>
+                    <button class="tab-btn" data-tab="tab-contact" onclick="switchTab('tab-contact')">联系方式</button>
                 </div>
-                <div class="form-group">
-                    <label>${currentLang === 'zh' ? '公司名称' : 'Company'}</label>
-                    <input type="text" name="company">
+                
+                <!-- Tab 1: 合作案例 -->
+                <div id="tab-cases" class="tab-pane active">
+                    <div class="case-grid">
+                        ${pageData.cases.map(c => `
+                            <div class="case-card">
+                                <h3>${c.title}</h3>
+                                <div class="client">客户类型：${c.client}</div>
+                                <p>${c.desc}</p>
+                            </div>
+                        `).join('')}
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label>${currentLang === 'zh' ? '联系方式 (邮箱/电话)' : 'Contact Info'}</label>
-                    <input type="text" name="contact" required>
+
+                <!-- Tab 2: 申请样品 -->
+                <div id="tab-sample" class="tab-pane">
+                    <div class="prose">${pageData.sampleDesc}</div>
+                    <form action="${pageData.formspreeUrl}" method="POST" style="max-width: 600px; margin-top:20px;">
+                        <div class="form-group">
+                            <label>您的姓名</label>
+                            <input type="text" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>公司名称</label>
+                            <input type="text" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label>联系方式 (邮箱/电话/微信)</label>
+                            <input type="text" name="contact" required>
+                        </div>
+                        <div class="form-group">
+                            <label>目标应用场景</label>
+                            <select name="scene">
+                                <option value="汽车">新能源汽车</option>
+                                <option value="光伏">光伏与储能</option>
+                                <option value="工业">工业驱动与风电</option>
+                                <option value="其他">其他/轨交航空</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>预计月用量</label>
+                            <input type="text" name="volume" placeholder="如：1000平方米/月">
+                        </div>
+                        <button type="submit" class="btn">提交申请</button>
+                    </form>
                 </div>
-                <div class="form-group">
-                    <label>${currentLang === 'zh' ? '需求描述' : 'Message'}</label>
-                    <textarea name="message" required></textarea>
+
+                <!-- Tab 3: 联系方式 -->
+                <div id="tab-contact" class="tab-pane">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="icon">📧</div>
+                            <div class="detail">
+                                <h4>商务合作邮箱</h4>
+                                <p>${pageData.email}</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">📞</div>
+                            <div class="detail">
+                                <h4>联系电话</h4>
+                                <p>${pageData.phone}</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="icon">💬</div>
+                            <div class="detail">
+                                <h4>微信 / WhatsApp</h4>
+                                <p>${pageData.wechat}</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button type="submit" class="btn">${currentLang === 'zh' ? '发送咨询' : 'Send'}</button>
-            </form>
+            </div>
         `;
     } else {
         contentHtml = `<div class="prose">${pageData.content || ''}</div>`;
