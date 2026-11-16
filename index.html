@@ -5,27 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>极热新材 - 氮化硅散热材料进口替代专家</title>
     <style>
-        /* =========================================
-           全新配色：工程蓝灰（Engineering Blue-Grey）
-           ========================================= */
+        /* 工程蓝灰配色 */
         :root {
-            --primary: #1e3a8a;        /* 深海蓝，沉稳专业 */
-            --primary-dark: #0f172a;   /* 极深石板灰，用于强调文字 */
-            --primary-light: #e2e8f0;  /* 浅灰蓝，用于高亮背景 */
-            --bg: #f1f5f9;             /* 工业浅灰底色 */
-            --text: #0f172a;           /* 炭黑文字 */
-            --muted: #475569;          /* 深灰次要文字 */
-            --line: #cbd5e1;           /* 硬朗的灰色边框 */
-            --card: #ffffff; 
-            --radius: 8px;             /* 圆角稍微收紧，显得更硬朗 */
-            --max: 1100px;
+            --primary: #1e3a8a; --primary-dark: #0f172a; --primary-light: #e2e8f0;
+            --bg: #f1f5f9; --text: #0f172a; --muted: #475569; --line: #cbd5e1;
+            --card: #ffffff; --radius: 8px; --max: 1100px;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
         a { color: inherit; text-decoration: none; cursor: pointer; }
         img { max-width: 100%; display: block; }
 
-        /* 顶部导航栏 - 半透明灰白 */
+        /* 顶部导航 */
         .topbar { position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; max-width: var(--max); margin: 0 auto; padding: 16px 20px; background: rgba(241, 245, 249, 0.9); backdrop-filter: blur(12px); border-bottom: 2px solid var(--line); }
         .brand a { display: flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.25rem; color: var(--primary); letter-spacing: 0.5px; }
         .logo-icon { font-size: 1.6rem; }
@@ -40,45 +31,40 @@
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* 首页 Hero 区域 */
+        /* 首页 */
         .hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 40px 0; text-align: left; }
         .hero-content { flex: 1.2; max-width: 550px; }
         .hero h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.2; margin-bottom: 20px; color: var(--primary-dark); font-weight: 800; letter-spacing: -0.5px; }
         .hero p { font-size: 1.15rem; color: var(--muted); margin-bottom: 32px; }
-        .hero-image-wrap { flex: 1; border-left: 4px solid var(--primary); padding-left: 20px; } /* 左边加一条深色竖线，工业感 */
+        .hero-image-wrap { flex: 1; border-left: 4px solid var(--primary); padding-left: 20px; }
         .hero-image { width: 100%; border-radius: var(--radius); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1); object-fit: cover; }
-        
         .btn { display: inline-block; background: var(--primary); color: #fff; padding: 14px 32px; border-radius: 4px; font-weight: 600; transition: all 0.2s; border: none; cursor: pointer; font-size: 1rem; }
         .btn:hover { background: var(--primary-dark); }
 
-        /* 数据条 */
         .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; margin: 50px 0; }
         .stat-item { background: var(--card); padding: 32px 24px; border-radius: var(--radius); text-align: center; border: 1px solid var(--line); border-top: 4px solid var(--primary); }
         .stat-item h3 { color: var(--primary-dark); font-size: 2.5rem; margin-bottom: 8px; font-weight: 800; }
         .stat-item p { color: var(--muted); font-size: 0.95rem; font-weight: 500; }
 
-        /* 页面标题 */
         .page-head { margin-bottom: 40px; border-bottom: 2px solid var(--line); padding-bottom: 24px; }
         .page-head h1 { font-size: 2.2rem; margin-bottom: 12px; color: var(--primary-dark); font-weight: 800; }
         .page-head p { color: var(--muted); font-size: 1.1rem; }
 
-        /* 对比表格 - 报告质感 */
+        /* 对比表格 */
         .compare-container { background: #fff; border-radius: var(--radius); border: 1px solid var(--line); box-shadow: 0 4px 20px rgba(0,0,0,0.03); overflow-x: auto; }
         .compare-table { width: 100%; border-collapse: separate; border-spacing: 0; min-width: 650px; }
         .compare-table th, .compare-table td { padding: 20px 16px; text-align: center; border-bottom: 1px solid var(--line); }
         .compare-table thead th { font-size: 1.05rem; font-weight: 700; padding: 24px 16px; background: #f8fafc; color: var(--primary-dark); border-bottom: 2px solid var(--primary); }
         .compare-table td:first-child, .compare-table th:first-child { text-align: left; font-weight: 600; color: var(--muted); background: #f8fafc; width: 25%; }
-        /* 中间自研列高亮 */
         .compare-table td:nth-child(2), .compare-table th:nth-child(2) { background: var(--primary-light); color: var(--primary-dark); font-weight: 700; border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
         .compare-table th:nth-child(2)::after { content: '核心推荐'; display: inline-block; background: var(--primary); color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
         .compare-table tbody tr:hover td { background: #f1f5f9; }
         .compare-table tbody tr:hover td:nth-child(2) { background: #cbd5e1; }
-        .compare-table td { font-size: 1rem; color: #334155; }
 
-        /* 应用场景 */
+        /* 应用领域 */
         .app-section { display: flex; align-items: center; gap: 40px; margin-bottom: 60px; }
         .app-section:nth-child(even) { flex-direction: row-reverse; }
-        .app-img { flex: 1; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .app-img { flex: 1; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); }
         .app-img img { width: 100%; height: 300px; object-fit: cover; }
         .app-content { flex: 1.2; }
         .app-content h2 { font-size: 1.6rem; margin-bottom: 16px; color: var(--primary-dark); font-weight: 700; }
@@ -99,24 +85,21 @@
         .patent-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
         .patent-tag { background: #f1f5f9; padding: 8px 12px; border-radius: 4px; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--line); font-weight: 500; }
 
-        /* 商务合作 Tab */
+        /* 商务合作 */
         .tab-nav { display: flex; gap: 10px; border-bottom: 2px solid var(--line); margin-bottom: 30px; }
         .tab-btn { background: none; border: none; padding: 12px 24px; font-size: 1.1rem; font-weight: 600; color: var(--muted); cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
         .tab-btn.active { color: var(--primary); border-bottom-color: var(--primary); }
         .tab-pane { display: none; animation: fadeIn 0.3s; }
         .tab-pane.active { display: block; }
-        
         .case-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .case-card { background: var(--card); padding: 24px; border-radius: var(--radius); border: 1px solid var(--line); border-left: 4px solid var(--primary); }
         .case-card h3 { font-size: 1.15rem; margin-bottom: 12px; color: var(--primary-dark); }
         .case-card .client { font-size: 0.85rem; color: #fff; background: var(--primary); display: inline-block; padding: 2px 8px; border-radius: 4px; margin-bottom: 12px; font-weight: 500; }
         .case-card p { font-size: 0.95rem; color: var(--muted); }
-
         .form-group { margin-bottom: 24px; }
         .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary-dark); }
         .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 4px; font-family: inherit; font-size: 1rem; background: #fff; }
         .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 2px var(--primary-light); }
-        
         .contact-info { background: var(--card); padding: 30px; border-radius: var(--radius); border: 1px solid var(--line); }
         .contact-item { display: flex; gap: 16px; margin-bottom: 24px; align-items: flex-start; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
         .contact-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -143,18 +126,18 @@
         <div class="brand">
             <a onclick="showPage('home')">
                 <span class="logo-icon">💠</span>
-                <span>极热新材</span>
+                <span id="brand-name" data-zh="极热新材" data-en="ThermaCore">极热新材</span>
             </a>
         </div>
         <nav class="mainnav">
-            <a onclick="showPage('material')" id="nav-material">材料优势</a>
-            <a onclick="showPage('applications')" id="nav-applications">应用领域</a>
-            <a onclick="showPage('team')" id="nav-team">团队背景</a>
-            <a onclick="showPage('contact')" id="nav-contact">商务合作</a>
+            <a onclick="showPage('material')" id="nav-material" data-zh="材料优势" data-en="Advantages">材料优势</a>
+            <a onclick="showPage('applications')" id="nav-applications" data-zh="应用领域" data-en="Applications">应用领域</a>
+            <a onclick="showPage('team')" id="nav-team" data-zh="团队背景" data-en="Team">团队背景</a>
+            <a onclick="showPage('contact')" id="nav-contact" data-zh="商务合作" data-en="Business" >商务合作</a>
         </nav>
         <div class="lang-switch">
-            <button>🇨🇳 中文</button>
-            <button>🇬🇧 EN</button>
+            <button onclick="changeLang('zh')" id="btn-zh">🇨🇳 中文</button>
+            <button onclick="changeLang('en')" id="btn-en">🇬🇧 EN</button>
         </div>
     </header>
 
@@ -163,37 +146,57 @@
         <div id="page-home" class="page active">
             <div class="hero">
                 <div class="hero-content">
-                    <h1>打破日本垄断，<br>氮化硅散热材料国产自研</h1>
-                    <p>专为高算力芯片设计，导热性能对标国际一线，价格仅为日本进口产品的一半。</p>
-                    <button onclick="showPage('material')" class="btn">查看性能参数</button>
+                    <h1 data-zh="打破日本垄断，<br>氮化硅散热材料国产自研" data-en="Breaking Japanese Monopoly:<br>In-house Silicon Nitride Materials">打破日本垄断，<br>氮化硅散热材料国产自研</h1>
+                    <p data-zh="专为高算力芯片设计，导热性能对标国际一线，价格仅为日本进口产品的一半。" data-en="Designed for high-compute chips. Matching top-tier international performance at half the cost of Japanese imports.">专为高算力芯片设计，导热性能对标国际一线，价格仅为日本进口产品的一半。</p>
+                    <button onclick="showPage('material')" class="btn" data-zh="查看性能参数" data-en="View Material Specs">查看性能参数</button>
                 </div>
                 <div class="hero-image-wrap">
                     <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop" class="hero-image" alt="Chip">
                 </div>
             </div>
             <div class="stats-bar">
-                <div class="stat-item"><h3>50%</h3><p>价格仅为日本进口的一半</p></div>
-                <div class="stat-item"><h3>Si3N4</h3><p>核心氮化硅陶瓷材料</p></div>
-                <div class="stat-item"><h3>国内直供</h3><p>彻底解决供应链卡脖子</p></div>
+                <div class="stat-item"><h3>50%</h3><p data-zh="价格仅为日本进口的一半" data-en="Cost vs. Japanese Imports">价格仅为日本进口的一半</p></div>
+                <div class="stat-item"><h3>Si3N4</h3><p data-zh="核心氮化硅陶瓷材料" data-en="Silicon Nitride Ceramics">核心氮化硅陶瓷材料</p></div>
+                <div class="stat-item"><h3 data-zh="国内直供" data-en="Domestic">国内直供</h3><p data-zh="彻底解决供应链卡脖子" data-en="Secure Supply Chain">彻底解决供应链卡脖子</p></div>
             </div>
         </div>
 
         <!-- 2. 材料优势 -->
         <div id="page-material" class="page">
             <div class="page-head">
-                <h1>材料优势</h1>
-                <p>用数据说话：为什么选择我们的自研氮化硅材料</p>
+                <h1 data-zh="材料优势" data-en="Material Advantages">材料优势</h1>
+                <p data-zh="用数据说话：为什么选择我们的自研氮化硅材料" data-en="Data-driven reasons to choose our Silicon Nitride materials">用数据说话：为什么选择我们的自研氮化硅材料</p>
             </div>
             <div class="compare-container">
                 <table class="compare-table">
                     <thead>
-                        <tr><th>对比项</th><th>我们的自研材料</th><th>日本进口同类材料</th></tr>
+                        <tr>
+                            <th data-zh="对比项" data-en="Metric">对比项</th>
+                            <th data-zh="我们的自研材料" data-en="Our Material">我们的自研材料</th>
+                            <th data-zh="日本进口同类材料" data-en="Japanese Imports">日本进口同类材料</th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr><td>采购成本</td><td>仅为日本进口价格的 50%</td><td>极高 (受制于汇率与供应链)</td></tr>
-                        <tr><td>导热性能</td><td>≥ 150 W/m·K (完全持平)</td><td>150 W/m·K</td></tr>
-                        <tr><td>供应链</td><td>国内直供，极速响应</td><td>海运交期长，易断供</td></tr>
-                        <tr><td>定制服务</td><td>支持按芯片封装定制</td><td>基本不支持</td></tr>
+                        <tr>
+                            <td data-zh="采购成本" data-en="Cost">采购成本</td>
+                            <td data-zh="仅为日本进口价格的 50%" data-en="50% of Import Price">仅为日本进口价格的 50%</td>
+                            <td data-zh="极高 (受制于汇率与供应链)" data-en="Very High">极高 (受制于汇率与供应链)</td>
+                        </tr>
+                        <tr>
+                            <td data-zh="导热性能" data-en="Conductivity">导热性能</td>
+                            <td data-zh="≥ 150 W/m·K (完全持平)" data-en="≥ 150 W/m·K (Match)">≥ 150 W/m·K (完全持平)</td>
+                            <td data-zh="150 W/m·K" data-en="150 W/m·K">150 W/m·K</td>
+                        </tr>
+                        <tr>
+                            <td data-zh="供应链" data-en="Supply Chain">供应链</td>
+                            <td data-zh="国内直供，极速响应" data-en="Domestic direct, fast">国内直供，极速响应</td>
+                            <td data-zh="海运交期长，易断供" data-en="Long lead, unstable">海运交期长，易断供</td>
+                        </tr>
+                        <tr>
+                            <td data-zh="定制服务" data-en="Customization">定制服务</td>
+                            <td data-zh="支持按芯片封装定制" data-en="Tailored to packaging">支持按芯片封装定制</td>
+                            <td data-zh="基本不支持" data-en="Not supported">基本不支持</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -202,28 +205,28 @@
         <!-- 3. 应用领域 -->
         <div id="page-applications" class="page">
             <div class="page-head">
-                <h1>应用领域与场景</h1>
-                <p>全面覆盖高算力与高可靠性热管理需求</p>
+                <h1 data-zh="应用领域与场景" data-en="Applications & Scenarios">应用领域与场景</h1>
+                <p data-zh="全面覆盖高算力与高可靠性热管理需求" data-en="Comprehensive thermal management for high-compute">全面覆盖高算力与高可靠性热管理需求</p>
             </div>
             <div class="app-section">
                 <div class="app-img"><img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop"></div>
                 <div class="app-content">
-                    <h2>新能源汽车（车规级功率模块）</h2>
-                    <p>主要用于 SiC MOSFET 主驱逆变器、车载充电机（OBC）的 AMB 覆铜基板。氮化硅因抗弯强度高、热膨胀系数接近硅芯片，是高可靠车规 SiC 模块的必选项。</p>
+                    <h2 data-zh="新能源汽车（车规级功率模块）" data-en="New Energy Vehicles (Automotive)">新能源汽车（车规级功率模块）</h2>
+                    <p data-zh="主要用于 SiC MOSFET 主驱逆变器、车载充电机（OBC）的 AMB 覆铜基板。氮化硅因抗弯强度高、热膨胀系数接近硅芯片，是高可靠车规 SiC 模块的必选项。" data-en="Used in SiC MOSFET main drive inverters and OBC AMB substrates. Si3N4 is essential for high-reliability automotive SiC modules.">主要用于 SiC MOSFET 主驱逆变器、车载充电机（OBC）的 AMB 覆铜基板。氮化硅因抗弯强度高、热膨胀系数接近硅芯片，是高可靠车规 SiC 模块的必选项。</p>
                     <div class="app-stats">
-                        <div class="app-stat-box"><span>行业需求占比</span><strong>约 58.6%</strong></div>
-                        <div class="app-stat-box"><span>月用量区间</span><strong>数千-数万 m²</strong></div>
+                        <div class="app-stat-box"><span data-zh="行业需求占比" data-en="Demand Share">行业需求占比</span><strong data-zh="约 58.6%" data-en="~58.6%">约 58.6%</strong></div>
+                        <div class="app-stat-box"><span data-zh="月用量区间" data-en="Monthly Volume">月用量区间</span><strong data-zh="数千-数万 m²" data-en="Thousands m²">数千-数万 m²</strong></div>
                     </div>
                 </div>
             </div>
             <div class="app-section">
                 <div class="app-img"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop"></div>
                 <div class="app-content">
-                    <h2>光伏逆变器与储能 PCS</h2>
-                    <p>应用于组串式/集中式光伏逆变器、储能变流器的功率模块散热与绝缘基板。该场景对高可靠性与抗热循环能力有严格要求，通常呈批量集中采购特征。</p>
+                    <h2 data-zh="光伏逆变器与储能 PCS" data-en="PV Inverters & Energy Storage">光伏逆变器与储能 PCS</h2>
+                    <p data-zh="应用于组串式/集中式光伏逆变器、储能变流器的功率模块散热与绝缘基板。该场景对高可靠性与抗热循环能力有严格要求，通常呈批量集中采购特征。" data-en="Applied to power module cooling and insulation substrates in PV inverters and PCS. Strict requirements for high reliability.">应用于组串式/集中式光伏逆变器、储能变流器的功率模块散热与绝缘基板。该场景对高可靠性与抗热循环能力有严格要求，通常呈批量集中采购特征。</p>
                     <div class="app-stats">
-                        <div class="app-stat-box"><span>行业需求占比</span><strong>约 19.4%</strong></div>
-                        <div class="app-stat-box"><span>月用量区间</span><strong>千平方米级</strong></div>
+                        <div class="app-stat-box"><span data-zh="行业需求占比" data-en="Demand Share">行业需求占比</span><strong data-zh="约 19.4%" data-en="~19.4%">约 19.4%</strong></div>
+                        <div class="app-stat-box"><span data-zh="月用量区间" data-en="Monthly Volume">月用量区间</span><strong data-zh="千平方米级" data-en="Thousands m²">千平方米级</strong></div>
                     </div>
                 </div>
             </div>
@@ -232,24 +235,33 @@
         <!-- 4. 团队背景 -->
         <div id="page-team" class="page">
             <div class="page-head">
-                <h1>团队背景</h1>
-                <p>顶尖专家团队，夯实研发壁垒</p>
+                <h1 data-zh="团队背景" data-en="Team & Expertise">团队背景</h1>
+                <p data-zh="顶尖专家团队，夯实研发壁垒" data-en="Top-tier R&D team building the technical moat">顶尖专家团队，夯实研发壁垒</p>
             </div>
             <div class="team-grid">
-                <div class="team-card"><h3>核心研发团队</h3><p>专注材料配方与烧结工艺方向，成员来自有色金属冶金、特种陶瓷背景。</p></div>
-                <div class="team-card"><h3>产业化与工艺团队</h3><p>负责从粉体到基板的良率爬坡、客户验证导入，保障量产稳定性。</p></div>
-                <div class="team-card"><h3>商务与客户成功</h3><p>对接硬件公司的采购与工程团队，缩短样品到量产的周期。</p></div>
+                <div class="team-card">
+                    <h3 data-zh="核心研发团队" data-en="Core R&D Team">核心研发团队</h3>
+                    <p data-zh="专注材料配方与烧结工艺方向，成员来自有色金属冶金、特种陶瓷背景。" data-en="Focused on material formulation and sintering processes from non-ferrous metallurgy backgrounds.">专注材料配方与烧结工艺方向，成员来自有色金属冶金、特种陶瓷背景。</p>
+                </div>
+                <div class="team-card">
+                    <h3 data-zh="产业化与工艺团队" data-en="Industrialization Team">产业化与工艺团队</h3>
+                    <p data-zh="负责从粉体到基板的良率爬坡、客户验证导入，保障量产稳定性。" data-en="Responsible for yield ramp-up and customer qualification to ensure mass production stability.">负责从粉体到基板的良率爬坡、客户验证导入，保障量产稳定性。</p>
+                </div>
+                <div class="team-card">
+                    <h3 data-zh="商务与客户成功" data-en="Business & Customer Success">商务与客户成功</h3>
+                    <p data-zh="对接硬件公司的采购与工程团队，缩短样品到量产的周期。" data-en="Connecting with procurement and engineering teams to shorten the sample-to-production cycle.">对接硬件公司的采购与工程团队，缩短样品到量产的周期。</p>
+                </div>
             </div>
             <div class="profile">
                 <div class="profile-avatar">👨‍🔬</div>
                 <div class="profile-info">
-                    <h3>李总 (研发负责人)</h3>
-                    <p style="color:var(--primary); font-weight:600; margin-bottom:10px;">首席技术专家 / 核心专利发明人</p>
-                    <p style="color:var(--muted); margin-bottom:16px;">曾担任某大型有色金属集团技术总监，主导多项国家级新材料研发项目。拥有极强的产业化落地经验，持有本材料核心配方及工艺专利。</p>
+                    <h3 data-zh="李总 (研发负责人)" data-en="Mr. Li (R&D Director)">李总 (研发负责人)</h3>
+                    <p style="color:var(--primary); font-weight:600; margin-bottom:10px;" data-zh="首席技术专家 / 核心专利发明人" data-en="Chief Technical Expert / Patent Inventor">首席技术专家 / 核心专利发明人</p>
+                    <p style="color:var(--muted); margin-bottom:16px;" data-zh="曾担任某大型有色金属集团技术总监，主导多项国家级新材料研发项目。拥有极强的产业化落地经验，持有本材料核心配方及工艺专利。" data-en="Former Technical Director at a major non-ferrous metal group. Extensive experience in industrializing advanced materials.">曾担任某大型有色金属集团技术总监，主导多项国家级新材料研发项目。拥有极强的产业化落地经验，持有本材料核心配方及工艺专利。</p>
                     <div class="patent-tags">
-                        <span class="patent-tag">发明专利：一种高导热氮化硅复合材料</span>
-                        <span class="patent-tag">实用新型：用于芯片封装的散热结构</span>
-                        <span class="patent-tag">有色金属冶炼高级工程师</span>
+                        <span class="patent-tag" data-zh="发明专利：一种高导热氮化硅复合材料" data-en="Patent: High thermal conductivity Si3N4 composite">发明专利：一种高导热氮化硅复合材料</span>
+                        <span class="patent-tag" data-zh="实用新型：用于芯片封装的散热结构" data-en="Utility Model: Heat dissipation structure">实用新型：用于芯片封装的散热结构</span>
+                        <span class="patent-tag" data-zh="有色金属冶炼高级工程师" data-en="Senior Engineer of Non-ferrous Metals">有色金属冶炼高级工程师</span>
                     </div>
                 </div>
             </div>
@@ -258,38 +270,45 @@
         <!-- 5. 商务合作 -->
         <div id="page-contact" class="page">
             <div class="page-head">
-                <h1>商务合作</h1>
-                <p>欢迎硬件公司与采购负责人联系我们</p>
+                <h1 data-zh="商务合作" data-en="Business Cooperation">商务合作</h1>
+                <p data-zh="欢迎硬件公司与采购负责人联系我们" data-en="We welcome inquiries from hardware companies">欢迎硬件公司与采购负责人联系我们</p>
             </div>
             <div class="tab-nav">
-                <button class="tab-btn active" onclick="switchTab('tab-cases')">合作案例</button>
-                <button class="tab-btn" onclick="switchTab('tab-sample')">申请样品</button>
-                <button class="tab-btn" onclick="switchTab('tab-contact')">联系方式</button>
+                <button class="tab-btn active" onclick="switchTab('tab-cases', this)" data-zh="合作案例" data-en="Cases">合作案例</button>
+                <button class="tab-btn" onclick="switchTab('tab-sample', this)" data-zh="申请样品" data-en="Request Sample">申请样品</button>
+                <button class="tab-btn" onclick="switchTab('tab-contact', this)" data-zh="联系方式" data-en="Contact">联系方式</button>
             </div>
             
             <div id="tab-cases" class="tab-pane active">
                 <div class="case-grid">
                     <div class="case-card">
-                        <h3>某头部新能源车企</h3>
-                        <div class="client">新能源汽车 / Tier-1</div>
-                        <p>提供车规级 AMB 基板样品，正在配合进行 1500 小时高温反偏测试（HTRB），目前导热性能与日本进口样品持平。</p>
+                        <h3 data-zh="某头部新能源车企" data-en="Top NEV OEM">某头部新能源车企</h3>
+                        <div class="client" data-zh="新能源汽车 / Tier-1" data-en="Automotive / Tier-1">新能源汽车 / Tier-1</div>
+                        <p data-zh="提供车规级 AMB 基板样品，正在配合进行 1500 小时高温反偏测试（HTRB），目前导热性能与日本进口样品持平。" data-en="Supplied automotive-grade AMB substrates for 1500h HTRB testing. Thermal performance matches Japanese samples perfectly.">提供车规级 AMB 基板样品，正在配合进行 1500 小时高温反偏测试（HTRB），目前导热性能与日本进口样品持平。</p>
                     </div>
                     <div class="case-card">
-                        <h3>某光伏逆变器上市公司</h3>
-                        <div class="client">光伏与储能</div>
-                        <p>应用于 PCS 模块散热，客户反馈良率稳定，综合成本下降 40%，目前已进入小批量试产阶段。</p>
+                        <h3 data-zh="某光伏逆变器上市公司" data-en="PV Inverter Listed Co.">某光伏逆变器上市公司</h3>
+                        <div class="client" data-zh="光伏与储能" data-en="PV & Energy Storage">光伏与储能</div>
+                        <p data-zh="应用于 PCS 模块散热，客户反馈良率稳定，综合成本下降 40%，目前已进入小批量试产阶段。" data-en="Used in PCS modules. Customer reported stable yield and a 40% overall cost reduction.">应用于 PCS 模块散热，客户反馈良率稳定，综合成本下降 40%，目前已进入小批量试产阶段。</p>
                     </div>
                 </div>
             </div>
             
             <div id="tab-sample" class="tab-pane">
-                <p style="margin-bottom:24px; color:var(--muted);">我们提供免费测试样品，请填写下方表单。我们的技术人员将在 24 小时内与您联系。</p>
+                <p style="margin-bottom:24px; color:var(--muted);" data-zh="我们提供免费测试样品，请填写下方表单。我们的技术人员将在 24 小时内与您联系。" data-en="Free testing samples are available. Fill out the form and our engineers will reach out within 24 hours.">我们提供免费测试样品，请填写下方表单。我们的技术人员将在 24 小时内与您联系。</p>
                 <form action="#" method="POST" style="max-width: 600px;">
-                    <div class="form-group"><label>您的姓名</label><input type="text" required></div>
-                    <div class="form-group"><label>公司名称</label><input type="text" required></div>
-                    <div class="form-group"><label>联系方式 (邮箱/电话/微信)</label><input type="text" required></div>
-                    <div class="form-group"><label>目标应用场景</label><select><option>新能源汽车</option><option>光伏与储能</option><option>工业驱动</option></select></div>
-                    <button type="submit" class="btn">提交申请</button>
+                    <div class="form-group"><label data-zh="您的姓名" data-en="Your Name">您的姓名</label><input type="text" required></div>
+                    <div class="form-group"><label data-zh="公司名称" data-en="Company">公司名称</label><input type="text" required></div>
+                    <div class="form-group"><label data-zh="联系方式 (邮箱/电话/微信)" data-en="Contact (Email/Phone/WeChat)">联系方式 (邮箱/电话/微信)</label><input type="text" required></div>
+                    <div class="form-group">
+                        <label data-zh="目标应用场景" data-en="Target Application">目标应用场景</label>
+                        <select>
+                            <option data-zh="新能源汽车" data-en="Automotive">新能源汽车</option>
+                            <option data-zh="光伏与储能" data-en="PV & Storage">光伏与储能</option>
+                            <option data-zh="工业驱动" data-en="Industrial">工业驱动</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn" data-zh="提交申请" data-en="Submit">提交申请</button>
                 </form>
             </div>
 
@@ -297,15 +316,15 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <div class="icon">📧</div>
-                        <div><h4>商务合作邮箱</h4><p>gkx20000421@163.com</p></div>
+                        <div><h4 data-zh="商务合作邮箱" data-en="Business Email">商务合作邮箱</h4><p>gkx20000421@163.com</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="icon">📞</div>
-                        <div><h4>联系电话</h4><p>+86 138-xxxx-xxxx</p></div>
+                        <div><h4 data-zh="联系电话" data-en="Phone">联系电话</h4><p>+86 138-xxxx-xxxx</p></div>
                     </div>
                     <div class="contact-item">
                         <div class="icon">💬</div>
-                        <div><h4>微信 / WhatsApp</h4><p>请添加微信：xxxxx</p></div>
+                        <div><h4 data-zh="微信 / WhatsApp" data-en="WeChat / WhatsApp">微信 / WhatsApp</h4><p data-zh="请添加微信：xxxxx" data-en="WeChat: xxxxx">请添加微信：xxxxx</p></div>
                     </div>
                 </div>
             </div>
@@ -313,25 +332,51 @@
     </main>
 
     <footer class="footer">
-        © 2026 极热新材科技有限公司 | 专注氮化硅散热材料，打破日本垄断
+        <span data-zh="© 2026 极热新材科技有限公司 | 专注氮化硅散热材料，打破日本垄断" data-en="© 2026 ThermaCore Tech | Silicon Nitride Thermal Materials">© 2026 极热新材科技有限公司 | 专注氮化硅散热材料，打破日本垄断</span>
     </footer>
 
     <script>
+        let currentLang = 'zh';
+
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.mainnav a').forEach(a => a.classList.remove('active'));
+            
             document.getElementById('page-' + pageId).classList.add('active');
+            
             if(pageId !== 'home') {
                 document.getElementById('nav-' + pageId).classList.add('active');
             }
         }
 
-        function switchTab(tabId) {
+        function switchTab(tabId, btnElement) {
             document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            
             document.getElementById(tabId).classList.add('active');
-            event.target.classList.add('active');
+            btnElement.classList.add('active');
         }
+
+        function changeLang(lang) {
+            currentLang = lang;
+            // 切换按钮高亮状态
+            document.getElementById('btn-zh').style.background = lang === 'zh' ? 'var(--primary-light)' : '#fff';
+            document.getElementById('btn-zh').style.borderColor = lang === 'zh' ? 'var(--primary)' : 'var(--line)';
+            document.getElementById('btn-en').style.background = lang === 'en' ? 'var(--primary-light)' : '#fff';
+            document.getElementById('btn-en').style.borderColor = lang === 'en' ? 'var(--primary)' : 'var(--line)';
+
+            // 遍历页面上所有带有 data-zh 的元素进行文字替换
+            document.querySelectorAll('[data-zh]').forEach(el => {
+                if (lang === 'zh') {
+                    el.innerHTML = el.getAttribute('data-zh');
+                } else {
+                    el.innerHTML = el.getAttribute('data-en');
+                }
+            });
+        }
+
+        // 初始化语言状态
+        changeLang('zh');
     </script>
 </body>
 </html>
