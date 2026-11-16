@@ -1,7 +1,8 @@
 {
   "site": {
     "name": "ThermaCore",
-    "title": "ThermaCore - High Performance Thermal Materials",
+    "logo": "",
+    "title": "ThermaCore - Silicon Nitride Thermal Materials",
     "footer": "© 2026 ThermaCore Tech | Breaking Import Monopolies"
   },
   "nav": [
@@ -11,17 +12,18 @@
     { "path": "/contact", "label": "Contact / Sample" }
   ],
   "home": {
-    "title": "In-house Thermal Materials for High-Compute Chips",
-    "subtitle": "Matching top-tier import performance at half the cost. Breaking the bottleneck of global chip cooling.",
+    "title": "Silicon Nitride Thermal Materials for High-Compute Chips",
+    "subtitle": "Matching top-tier Japanese import performance at half the cost. Breaking the bottleneck of global chip cooling.",
     "ctaText": "View Material Specs",
     "ctaLink": "/material",
+    "heroImage": "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop",
     "stats": [
-      { "value": "50%", "label": "Cost Reduction vs. Imports" },
-      { "value": "> 150 W/m·K", "label": "Ultra-High Conductivity" },
-      { "value": "100%", "label": "Proprietary Patent Tech" }
+      { "value": "50%", "label": "Cost vs. Japanese Imports" },
+      { "value": "Si3N4", "label": "Silicon Nitride Ceramics" },
+      { "value": "Domestic", "label": "Secure Supply Chain" }
     ],
     "features": [
-      { "title": "Import Substitution", "desc": "Self-developed formula and process cuts material costs in half while maintaining extreme stability." },
+      { "title": "Import Substitution", "desc": "Self-developed Si3N4 formula and process cuts material costs in half while maintaining extreme stability." },
       { "title": "Crucial for AI Era", "desc": "Essential for AI servers and high-end GPUs. Global demand is booming while supply remains scarce." },
       { "title": "Backed by Top Experts", "desc": "Our R&D head holds core patents and previously served as Tech Director for major non-ferrous metal companies." }
     ]
@@ -29,17 +31,17 @@
   "pages": {
     "/material": {
       "title": "Material Advantages",
-      "subtitle": "Data-driven reasons to choose our materials",
+      "subtitle": "Data-driven reasons to choose our Silicon Nitride materials",
       "type": "compare",
       "tableTitle": "Performance & Cost Comparison",
-      "headers": ["Metric", "Imported Materials", "Our Material"],
+      "headers": ["Metric", "Our Material", "Japanese Imports"],
       "rows": [
-        ["Cost", "Very High (Supply chain premium)", "50% of Import Price"],
-        ["Conductivity", "150 W/m·K", "≥ 150 W/m·K"],
-        ["Supply Stability", "Long lead time, risk of shortage", "Domestic direct supply, fast response"],
-        ["Customization", "Limited", "Tailored to your chip packaging needs"]
+        ["Cost", "50% of Import Price", "Very High"],
+        ["Conductivity", "≥ 150 W/m·K (Match)", "150 W/m·K"],
+        ["Supply Chain", "Domestic direct, fast", "Long lead, unstable"],
+        ["Customization", "Tailored to packaging", "Not supported"]
       ],
-      "desc": "<p>Our materials are engineered to meet the rigorous thermal management demands of high-compute chips. As global demand for chip cooling surges, our domestic alternative secures your supply chain and drastically reduces BOM costs.</p>"
+      "desc": "<p>Our Silicon Nitride materials are engineered to meet the rigorous thermal management demands of high-compute chips. As global demand surges, our domestic alternative secures your supply chain and drastically reduces BOM costs.</p>"
     },
     "/applications": {
       "title": "Applications",
@@ -54,7 +56,7 @@
       "name": "Mr. Li (R&D Director)",
       "role": "Chief Technical Expert / Patent Inventor",
       "bio": "<p>Former Technical Director at a major non-ferrous metal group. Led multiple national R&D projects. Extensive experience in industrializing advanced materials.</p>",
-      "patents": ["Patent: High thermal conductivity composite material", "Utility Model: Heat dissipation structure for chip packaging", "Senior Engineer of Non-ferrous Metals"]
+      "patents": ["Patent: High thermal conductivity Silicon Nitride composite", "Utility Model: Heat dissipation structure for chip packaging", "Senior Engineer of Non-ferrous Metals"]
     },
     "/contact": {
       "title": "Contact Us & Request Sample",
