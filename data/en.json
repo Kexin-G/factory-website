@@ -8,8 +8,8 @@
   "nav": [
     { "path": "/material", "label": "Advantages" },
     { "path": "/applications", "label": "Applications" },
-    { "path": "/team", "label": "Expertise" },
-    { "path": "/contact", "label": "Contact / Sample" }
+    { "path": "/team", "label": "Team" },
+    { "path": "/contact", "label": "Business" }
   ],
   "home": {
     "title": "Silicon Nitride Thermal Materials for High-Compute Chips",
@@ -23,7 +23,7 @@
       { "value": "Domestic", "label": "Secure Supply Chain" }
     ],
     "features": [
-      { "title": "Import Substitution", "desc": "Self-developed Si3N4 formula and process cuts material costs in half while maintaining extreme stability." },
+      { "title": "Import Substitution", "desc": "Self-developed Si3N4 formula cuts costs in half while maintaining extreme stability." },
       { "title": "Crucial for AI Era", "desc": "Essential for AI servers and high-end GPUs. Global demand is booming while supply remains scarce." },
       { "title": "Backed by Top Experts", "desc": "Our R&D head holds core patents and previously served as Tech Director for major non-ferrous metal companies." }
     ]
@@ -44,26 +44,95 @@
       "desc": "<p>Our Silicon Nitride materials are engineered to meet the rigorous thermal management demands of high-compute chips. As global demand surges, our domestic alternative secures your supply chain and drastically reduces BOM costs.</p>"
     },
     "/applications": {
-      "title": "Applications",
-      "subtitle": "Solving high heat flux challenges",
-      "content": "<h2>AI Compute Servers</h2><p>Designed for AI training clusters. Our materials significantly lower junction temperatures, ensuring stable operation under heavy loads.</p><h2>High-end Consumer Electronics</h2><p>Ultra-thin and highly conductive solutions for smartphones and high-performance laptops.</p><h2>New Energy Vehicles</h2><p>High reliability across a wide temperature range for autonomous driving chips and power semiconductors.</p>"
+      "title": "Applications & Scenarios",
+      "subtitle": "Comprehensive thermal management for high-compute & high-reliability",
+      "type": "applications",
+      "list": [
+        {
+          "title": "New Energy Vehicles (Automotive)",
+          "image": "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?q=80&w=800&auto=format&fit=crop",
+          "desc": "Used in SiC MOSFET main drive inverters and OBC AMB substrates. Due to high bending strength and CTE matching silicon, Si3N4 is essential for high-reliability automotive SiC modules.",
+          "stats": [
+            { "label": "Demand Share", "value": "~58.6%" },
+            { "label": "Monthly Volume", "value": "Thousands m²" },
+            { "label": "Ref. Price", "value": "~$571/m²" }
+          ]
+        },
+        {
+          "title": "PV Inverters & Energy Storage",
+          "image": "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop",
+          "desc": "Applied to power module cooling and insulation substrates in PV inverters and PCS. Strict requirements for high reliability and thermal cycling resistance.",
+          "stats": [
+            { "label": "Demand Share", "value": "~19.4%" },
+            { "label": "Monthly Volume", "value": "Thousands m²" },
+            { "label": "Ref. Price", "value": "Varies by size" }
+          ]
+        },
+        {
+          "title": "Industrial Drives & Wind Power",
+          "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop",
+          "desc": "Used for power module packaging in industrial inverters and wind converters. More cost-sensitive, making our self-developed materials highly advantageous.",
+          "stats": [
+            { "label": "Demand Share", "value": "~12.8%" },
+            { "label": "Monthly Volume", "value": "Hundreds m²" },
+            { "label": "Ref. Price", "value": "Cost competitive" }
+          ]
+        },
+        {
+          "title": "Rail & Aerospace",
+          "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=800&auto=format&fit=crop",
+          "desc": "Covers traction converters, aerospace power electronics, and high-end appliances. Smaller volume but higher margin, with strong demand for supply chain security.",
+          "stats": [
+            { "label": "Demand Share", "value": "~9.2%" },
+            { "label": "Monthly Volume", "value": "Tens m²" },
+            { "label": "Ref. Price", "value": "High margin" }
+          ]
+        }
+      ]
     },
     "/team": {
-      "title": "Expertise & Credentials",
+      "title": "Team & Expertise",
       "subtitle": "Top-tier R&D team building the technical moat",
-      "type": "profile",
-      "desc": "<p>We don't just formulate materials; we deeply understand downstream manufacturing processes.</p>",
-      "name": "Mr. Li (R&D Director)",
-      "role": "Chief Technical Expert / Patent Inventor",
-      "bio": "<p>Former Technical Director at a major non-ferrous metal group. Led multiple national R&D projects. Extensive experience in industrializing advanced materials.</p>",
-      "patents": ["Patent: High thermal conductivity Silicon Nitride composite", "Utility Model: Heat dissipation structure for chip packaging", "Senior Engineer of Non-ferrous Metals"]
+      "type": "team",
+      "desc": "<p>We don't just formulate materials; we deeply understand downstream manufacturing processes. Our core members have decades of experience in non-ferrous metals and thermal management.</p>",
+      "composition": [
+        { "title": "Core R&D Team", "desc": "Focused on material formulation and sintering processes, from non-ferrous metallurgy and special ceramics backgrounds." },
+        { "title": "Industrialization Team", "desc": "Responsible for yield ramp-up from powder to substrate, and customer qualification." },
+        { "title": "Business & Customer Success", "desc": "Connecting with procurement and engineering teams to shorten the sample-to-production cycle." }
+      ],
+      "expert": {
+        "name": "Mr. Li (R&D Director)",
+        "role": "Chief Technical Expert / Patent Inventor",
+        "bio": "<p>Former Technical Director at a major non-ferrous metal group. Led multiple national R&D projects. Extensive experience in industrializing advanced materials.</p>",
+        "patents": ["Patent: High thermal conductivity Si3N4 composite", "Utility Model: Heat dissipation structure", "Senior Engineer of Non-ferrous Metals"]
+      }
     },
     "/contact": {
-      "title": "Contact Us & Request Sample",
+      "title": "Business Cooperation",
       "subtitle": "We welcome inquiries from hardware companies",
-      "type": "form",
-      "desc": "<p>Free testing samples are available. Fill out the form and our engineers will reach out within 24 hours.</p>",
-      "formspreeUrl": "https://formspree.io/f/YOUR_FORM_ID"
+      "type": "business",
+      "cases": [
+        {
+          "title": "Top NEV OEM (Testing)",
+          "client": "Automotive / Tier-1",
+          "desc": "Supplied automotive-grade AMB substrates for 1500h HTRB testing. Thermal performance matches Japanese samples perfectly."
+        },
+        {
+          "title": "PV Inverter Listed Co. (Small Batch)",
+          "client": "PV & Energy Storage",
+          "desc": "Used in PCS modules. Customer reported stable yield and a 40% overall cost reduction. Currently in small-batch trial."
+        },
+        {
+          "title": "Industrial Drive Manufacturer (Mass Prod)",
+          "client": "Industrial",
+          "desc": "Replaced Japanese supplier. Lead time cut from 8 weeks to 2 weeks, significantly reducing inventory pressure."
+        }
+      ],
+      "sampleDesc": "<p>Free testing samples are available. Fill out the form and our engineers will reach out within 24 hours.</p>",
+      "formspreeUrl": "https://formspree.io/f/YOUR_FORM_ID",
+      "email": "gkx20000421@163.com",
+      "phone": "+86 138-xxxx-xxxx (Edit)",
+      "wechat": "WhatsApp: +86 138-xxxx-xxxx / WeChat: Edit"
     }
   }
 }
